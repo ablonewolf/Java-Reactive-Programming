@@ -27,6 +27,13 @@ public class FluxAndMonoGeneratorService {
         return nameFlux;
     }
 
+    //    Filter the strings whose length is greater than the given string length
+    public Flux<String> nameFluxFilter(int stringLength) {
+        return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
+                .filter(string -> string.length() > stringLength)
+                .log();
+    }
+
     public static void main(String[] args) {
         FluxAndMonoGeneratorService fluxAndMonoGeneratorService = new FluxAndMonoGeneratorService();
         fluxAndMonoGeneratorService.nameFlux().subscribe(name -> {

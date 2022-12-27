@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-27T03:51:37" hostname="bjit-B360M-AORUS-Gaming-3" time="0.064">
+<testsuite name="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-27T03:58:52" hostname="bjit-B360M-AORUS-Gaming-3" time="0.071">
   <properties/>
-  <testcase name="nameFluxImmutability()" classname="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" time="0.064"/>
-  <system-out><![CDATA[09:51:37.693 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+  <testcase name="nameFluxFilter()" classname="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" time="0.071"/>
+  <system-out><![CDATA[09:58:52.633 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+09:58:52.645 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onSubscribe([Fuseable] FluxFilterFuseable.FilterFuseableSubscriber)
+09:58:52.646 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | request(unbounded)
+09:58:52.647 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(Rabbi)
+09:58:52.647 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(Mosfik)
+09:58:52.647 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(Tahiyat)
+09:58:52.647 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(Zareen)
+09:58:52.647 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onComplete()
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

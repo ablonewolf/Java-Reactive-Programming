@@ -37,4 +37,12 @@ class FluxAndMonoGeneratorServiceTest {
                 .expectNext("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen")
                 .verifyComplete();
     }
+
+    @Test
+    void nameFluxFilter() {
+        var nameFluxFilter = fluxAndMonoGeneratorService.nameFluxFilter(4);
+        StepVerifier.create(nameFluxFilter)
+                .expectNextCount(4)
+                .verifyComplete();
+    }
 }
