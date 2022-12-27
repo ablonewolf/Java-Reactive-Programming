@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-27T03:58:52" hostname="bjit-B360M-AORUS-Gaming-3" time="0.071">
+<testsuite name="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-27T04:23:47" hostname="bjit-B360M-AORUS-Gaming-3" time="0.077">
   <properties/>
-  <testcase name="nameFluxFilter()" classname="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" time="0.071"/>
-  <system-out><![CDATA[09:58:52.633 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
-09:58:52.645 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onSubscribe([Fuseable] FluxFilterFuseable.FilterFuseableSubscriber)
-09:58:52.646 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | request(unbounded)
-09:58:52.647 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(Rabbi)
-09:58:52.647 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(Mosfik)
-09:58:52.647 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(Tahiyat)
-09:58:52.647 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(Zareen)
-09:58:52.647 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onComplete()
+  <testcase name="nameFluxFlatMap()" classname="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" time="0.077"/>
+  <system-out><![CDATA[10:23:47.475 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+10:23:47.490 [Test worker] INFO reactor.Flux.FlatMap.1 - onSubscribe(FluxFlatMap.FlatMapMain)
+10:23:47.492 [Test worker] INFO reactor.Flux.FlatMap.1 - request(unbounded)
+10:23:47.493 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(R)
+10:23:47.493 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(a)
+10:23:47.493 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(b)
+10:23:47.493 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(b)
+10:23:47.493 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(i)
+10:23:47.493 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(M)
+10:23:47.493 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(o)
+10:23:47.493 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(s)
+10:23:47.493 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(f)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(i)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(k)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(T)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(a)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(h)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(i)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(y)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(a)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(t)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(Z)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(a)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(r)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(e)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(e)
+10:23:47.494 [Test worker] INFO reactor.Flux.FlatMap.1 - onNext(n)
+10:23:47.495 [Test worker] INFO reactor.Flux.FlatMap.1 - onComplete()
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

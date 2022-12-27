@@ -34,6 +34,18 @@ public class FluxAndMonoGeneratorService {
                 .log();
     }
 
+    public Flux<String> nameFluxFlatMap(int stringLength) {
+        return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
+                .filter(string -> string.length() > stringLength)
+                .flatMap(s -> splitString(s))
+                .log();
+    }
+
+    public Flux<String> splitString(String name) {
+        var charArray = name.split("");
+        return Flux.fromArray(charArray);
+    }
+
     public static void main(String[] args) {
         FluxAndMonoGeneratorService fluxAndMonoGeneratorService = new FluxAndMonoGeneratorService();
         fluxAndMonoGeneratorService.nameFlux().subscribe(name -> {
