@@ -3,8 +3,6 @@ package com.learnreactiveprogramming.service;
 import org.junit.jupiter.api.Test;
 import reactor.test.StepVerifier;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class FluxAndMonoGeneratorServiceTest {
     FluxAndMonoGeneratorService fluxAndMonoGeneratorService = new FluxAndMonoGeneratorService();
 
@@ -23,7 +21,7 @@ class FluxAndMonoGeneratorServiceTest {
     void nameFluxUpper() {
         var nameFluxUpper = fluxAndMonoGeneratorService.nameFluxUpper();
         StepVerifier.create(nameFluxUpper)
-                .expectNext("ARKA","RABBI","MOSFIK","TAHIYAT","ZAREEN")
+                .expectNext("ARKA", "RABBI", "MOSFIK", "TAHIYAT", "ZAREEN")
 //                .expectNext("ARKA")
 //                .expectNextCount(4)
                 .verifyComplete();

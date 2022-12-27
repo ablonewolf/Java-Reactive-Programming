@@ -9,6 +9,21 @@ import java.util.Random;
 
 public class FluxAndMonoGeneratorService {
 
+    public static void main(String[] args) {
+        FluxAndMonoGeneratorService fluxAndMonoGeneratorService = new FluxAndMonoGeneratorService();
+        fluxAndMonoGeneratorService.nameFlux().subscribe(name -> {
+            System.out.println("Name is : " + name + ".");
+        });
+
+        fluxAndMonoGeneratorService.nameMono().subscribe(name -> {
+            System.out.println("Mono Name is : " + name + ".");
+        });
+
+        fluxAndMonoGeneratorService.nameFluxUpper().subscribe(name -> {
+            System.out.println("Name in Upper case is : " + name + ".");
+        });
+    }
+
     public Flux<String> nameFlux() {
         return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen")).log();
     }
@@ -42,6 +57,7 @@ public class FluxAndMonoGeneratorService {
                 .flatMap(s -> splitString(s))
                 .log();
     }
+
     public Flux<String> nameFluxFlatMapAsync(int stringLength) {
         return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
                 .filter(string -> string.length() > stringLength)
@@ -59,20 +75,5 @@ public class FluxAndMonoGeneratorService {
         var delay = new Random().nextInt(2000);
         return Flux.fromArray(charArray)
                 .delayElements(Duration.ofMillis(delay));
-    }
-
-    public static void main(String[] args) {
-        FluxAndMonoGeneratorService fluxAndMonoGeneratorService = new FluxAndMonoGeneratorService();
-        fluxAndMonoGeneratorService.nameFlux().subscribe(name -> {
-            System.out.println("Name is : " + name + ".");
-        });
-
-        fluxAndMonoGeneratorService.nameMono().subscribe(name -> {
-            System.out.println("Mono Name is : " + name + ".");
-        });
-
-        fluxAndMonoGeneratorService.nameFluxUpper().subscribe(name -> {
-            System.out.println("Name in Upper case is : " + name + ".");
-        });
     }
 }
