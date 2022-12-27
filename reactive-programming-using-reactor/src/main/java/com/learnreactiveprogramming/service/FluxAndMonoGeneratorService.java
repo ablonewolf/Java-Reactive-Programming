@@ -15,6 +15,18 @@ public class FluxAndMonoGeneratorService {
         return Mono.just("Arka Bhuiyan").log();
     }
 
+    public Flux<String> nameFluxUpper() {
+        return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
+                .map(String::toUpperCase)
+                .log();
+    }
+
+    public Flux<String> nameFluxImmutability() {
+        var nameFlux = Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"));
+        nameFlux.map(String::toUpperCase);
+        return nameFlux;
+    }
+
     public static void main(String[] args) {
         FluxAndMonoGeneratorService fluxAndMonoGeneratorService = new FluxAndMonoGeneratorService();
         fluxAndMonoGeneratorService.nameFlux().subscribe(name -> {
@@ -23,6 +35,10 @@ public class FluxAndMonoGeneratorService {
 
         fluxAndMonoGeneratorService.nameMono().subscribe(name -> {
             System.out.println("Mono Name is : " + name + ".");
+        });
+
+        fluxAndMonoGeneratorService.nameFluxUpper().subscribe(name -> {
+            System.out.println("Name in Upper case is : " + name + ".");
         });
     }
 }

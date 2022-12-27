@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-27T03:51:37" hostname="bjit-B360M-AORUS-Gaming-3" time="0.064">
+  <properties/>
+  <testcase name="nameFluxImmutability()" classname="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" time="0.064"/>
+  <system-out><![CDATA[09:51:37.693 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
