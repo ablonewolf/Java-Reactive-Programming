@@ -118,6 +118,18 @@ public class FluxAndMonoGeneratorService {
                 .log();
     }
 
+    public Flux<String> exploreFluxConcat() {
+        var firstName = Flux.just("Arka");
+        var lastName = Flux.just("Bhuiyan");
+        return Flux.concat(firstName,lastName).log();
+    }
+
+    public Flux<String> exploreConcatWithMono() {
+        var firstName = Mono.just("Arka");
+        var lastName = Mono.just("Bhuiyan");
+        return firstName.concatWith(lastName).log();
+    }
+
     public Flux<String> splitString(String name) {
         var charArray = name.split("");
         return Flux.fromArray(charArray);

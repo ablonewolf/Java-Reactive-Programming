@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-28T05:23:16" hostname="bjit-B360M-AORUS-Gaming-3" time="0.07">
+<testsuite name="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-28T05:47:52" hostname="bjit-B360M-AORUS-Gaming-3" time="0.081">
   <properties/>
-  <testcase name="nameFluxTransformSwitchIfEmpty()" classname="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" time="0.07"/>
-  <system-out><![CDATA[11:23:17.011 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
-11:23:17.022 [Test worker] INFO reactor.Flux.SwitchIfEmpty.1 - onSubscribe(FluxSwitchIfEmpty.SwitchIfEmptySubscriber)
-11:23:17.024 [Test worker] INFO reactor.Flux.SwitchIfEmpty.1 - request(unbounded)
-11:23:17.025 [Test worker] INFO reactor.Flux.SwitchIfEmpty.1 - onNext(default)
-11:23:17.026 [Test worker] INFO reactor.Flux.SwitchIfEmpty.1 - onComplete()
+  <testcase name="exploreConcatWithMono()" classname="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" time="0.081"/>
+  <system-out><![CDATA[11:47:52.587 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+11:47:52.623 [Test worker] INFO reactor.Flux.ConcatArray.1 - onSubscribe(FluxConcatArray.ConcatArraySubscriber)
+11:47:52.625 [Test worker] INFO reactor.Flux.ConcatArray.1 - request(unbounded)
+11:47:52.625 [Test worker] INFO reactor.Flux.ConcatArray.1 - onNext(Arka)
+11:47:52.625 [Test worker] INFO reactor.Flux.ConcatArray.1 - onNext(Bhuiyan)
+11:47:52.626 [Test worker] INFO reactor.Flux.ConcatArray.1 - onComplete()
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
