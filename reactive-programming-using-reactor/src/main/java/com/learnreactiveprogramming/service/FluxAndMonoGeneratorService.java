@@ -76,4 +76,11 @@ public class FluxAndMonoGeneratorService {
         return Flux.fromArray(charArray)
                 .delayElements(Duration.ofMillis(delay));
     }
+
+    public Flux<String> nameFluxConcatMap(int stringLength) {
+        return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
+                .filter(string -> string.length() > stringLength)
+                .concatMap(s -> splitStringWithDelay(s))
+                .log();
+    }
 }

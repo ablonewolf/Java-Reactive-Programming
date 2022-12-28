@@ -48,7 +48,8 @@ class FluxAndMonoGeneratorServiceTest {
     void nameFluxFlatMap() {
         var nameFluxFlatMap = fluxAndMonoGeneratorService.nameFluxFlatMap(4);
         StepVerifier.create(nameFluxFlatMap)
-                .expectNextCount(24)
+                .expectNext("R","a","b")
+                .expectNextCount(21)
                 .verifyComplete();
     }
 
@@ -57,6 +58,15 @@ class FluxAndMonoGeneratorServiceTest {
         var nameFluxFlatMapAsync = fluxAndMonoGeneratorService.nameFluxFlatMapAsync(4);
         StepVerifier.create(nameFluxFlatMapAsync)
                 .expectNextCount(24)
+                .verifyComplete();
+    }
+
+    @Test
+    void nameFluxConcatMap() {
+        var nameFluxConcatMap = fluxAndMonoGeneratorService.nameFluxConcatMap(4);
+        StepVerifier.create(nameFluxConcatMap)
+                .expectNext("R","a","b","b","i")
+                .expectNextCount(19)
                 .verifyComplete();
     }
 }
