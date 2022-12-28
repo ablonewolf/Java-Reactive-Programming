@@ -94,9 +94,27 @@ public class FluxAndMonoGeneratorService {
     }
 
     public Flux<String> nameFluxTransform(int stringLength) {
-        Function<Flux<String>,Flux<String>> filterMap = name -> name.map(String::toUpperCase).filter(s -> s.length() >stringLength);
+        Function<Flux<String>, Flux<String>> filterMap = name -> name.map(String::toUpperCase).filter(s -> s.length() > stringLength);
         return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
                 .transform(filterMap)
+                .log();
+    }
+
+    public Flux<String> nameFluxTransformDefaultEmpty(int stringLength) {
+        Function<Flux<String>, Flux<String>> filterMap = name -> name.map(String::toUpperCase).filter(s -> s.length() > stringLength);
+        return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
+                .transform(filterMap)
+                .defaultIfEmpty("default")
+                .log();
+    }
+
+    public Flux<String> nameFluxTransformSwitchIfEmpty(int stringLength) {
+        Function<Flux<String>, Flux<String>> filterMap = name -> name.map(String::toUpperCase).filter(s -> s.length() > stringLength);
+
+        var defaultFlux = Flux.just("default");
+        return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
+                .transform(filterMap)
+                .switchIfEmpty(defaultFlux)
                 .log();
     }
 
