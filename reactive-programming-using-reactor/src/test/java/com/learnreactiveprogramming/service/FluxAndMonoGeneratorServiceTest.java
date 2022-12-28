@@ -81,4 +81,23 @@ class FluxAndMonoGeneratorServiceTest {
                 .expectNext(List.of("A","R","K","A","B","H","U","I","Y","A","N"))
                 .verifyComplete();
     }
+
+    @Test
+    void nameMonoFlatMapMany() {
+        int stringLength = 3;
+        var monoValue = fluxAndMonoGeneratorService.nameMonoFlatMapMany(stringLength);
+
+        StepVerifier.create(monoValue)
+                .expectNext("A","R","K","A")
+                .verifyComplete();
+    }
+
+    @Test
+    void nameFluxTransform() {
+        int stringLength =4;
+        var nameFluxTransform = fluxAndMonoGeneratorService.nameFluxTransform(stringLength);
+        StepVerifier.create(nameFluxTransform)
+                .expectNextCount(4)
+                .verifyComplete();
+    }
 }

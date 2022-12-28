@@ -6,6 +6,7 @@ import reactor.core.publisher.Mono;
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Function;
 
 public class FluxAndMonoGeneratorService {
 
@@ -42,7 +43,16 @@ public class FluxAndMonoGeneratorService {
         return Mono.just("ArkaBhuiyan")
                 .map(String::toUpperCase)
                 .filter(s -> s.length() > stringLength)
-                .flatMap(this::splitStringMono);
+                .flatMap(this::splitStringMono)
+                .log();
+    }
+
+    public Flux<String> nameMonoFlatMapMany(int stringLength) {
+        return Mono.just("Arka")
+                .map(String::toUpperCase)
+                .filter(s -> s.length() > stringLength)
+                .flatMapMany(this::splitString)
+                .log();
     }
 
     private Mono<List<String>> splitStringMono(String s) {
@@ -80,6 +90,13 @@ public class FluxAndMonoGeneratorService {
         return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
                 .filter(string -> string.length() > stringLength)
                 .flatMap(s -> splitStringWithDelay(s))
+                .log();
+    }
+
+    public Flux<String> nameFluxTransform(int stringLength) {
+        Function<Flux<String>,Flux<String>> filterMap = name -> name.map(String::toUpperCase).filter(s -> s.length() >stringLength);
+        return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
+                .transform(filterMap)
                 .log();
     }
 

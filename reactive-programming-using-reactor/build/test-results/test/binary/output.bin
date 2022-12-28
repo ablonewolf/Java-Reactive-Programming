@@ -1,1 +1,8 @@
-d09:10:23.609 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+d10:38:35.184 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+†10:38:35.197 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onSubscribe([Fuseable] FluxFilterFuseable.FilterFuseableSubscriber)
+U10:38:35.199 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | request(unbounded)
+P10:38:35.199 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(RABBI)
+Q10:38:35.199 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(MOSFIK)
+R10:38:35.199 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(TAHIYAT)
+Q10:38:35.199 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(ZAREEN)
+O10:38:35.200 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onComplete()

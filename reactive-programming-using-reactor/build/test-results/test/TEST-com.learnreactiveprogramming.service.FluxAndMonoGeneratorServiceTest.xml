@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-28T03:10:23" hostname="bjit-B360M-AORUS-Gaming-3" time="0.113">
+<testsuite name="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-28T04:38:35" hostname="bjit-B360M-AORUS-Gaming-3" time="0.082">
   <properties/>
-  <testcase name="nameMonoFlatMap()" classname="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" time="0.113"/>
-  <system-out><![CDATA[09:10:23.609 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+  <testcase name="nameFluxTransform()" classname="com.learnreactiveprogramming.service.FluxAndMonoGeneratorServiceTest" time="0.082"/>
+  <system-out><![CDATA[10:38:35.184 [Test worker] DEBUG reactor.util.Loggers$LoggerFactory - Using Slf4j logging framework
+10:38:35.197 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onSubscribe([Fuseable] FluxFilterFuseable.FilterFuseableSubscriber)
+10:38:35.199 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | request(unbounded)
+10:38:35.199 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(RABBI)
+10:38:35.199 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(MOSFIK)
+10:38:35.199 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(TAHIYAT)
+10:38:35.199 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onNext(ZAREEN)
+10:38:35.200 [Test worker] INFO reactor.Flux.FilterFuseable.1 - | onComplete()
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
