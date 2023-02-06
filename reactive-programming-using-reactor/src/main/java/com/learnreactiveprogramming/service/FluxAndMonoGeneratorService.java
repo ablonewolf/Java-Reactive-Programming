@@ -12,17 +12,13 @@ public class FluxAndMonoGeneratorService {
 
     public static void main(String[] args) {
         FluxAndMonoGeneratorService fluxAndMonoGeneratorService = new FluxAndMonoGeneratorService();
-        fluxAndMonoGeneratorService.nameFlux().subscribe(name -> {
-            System.out.println("Name is : " + name + ".");
-        });
+        fluxAndMonoGeneratorService.nameFlux().subscribe(name -> System.out.println("Name is : " + name + "."));
 
-        fluxAndMonoGeneratorService.nameMono().subscribe(name -> {
-            System.out.println("Mono Name is : " + name + ".");
-        });
+        fluxAndMonoGeneratorService.nameMono().subscribe(name -> System.out.println("Mono Name is : " + name + "."));
 
-        fluxAndMonoGeneratorService.nameFluxUpper().subscribe(name -> {
-            System.out.println("Name in Upper case is : " + name + ".");
-        });
+        fluxAndMonoGeneratorService.listMono().subscribe(name -> System.out.println("Name in the list: " + name + "." ));
+
+        fluxAndMonoGeneratorService.nameFluxUpper().subscribe(name -> System.out.println("Name in Upper case is : " + name + "."));
     }
 
     public Flux<String> nameFlux() {
@@ -31,6 +27,10 @@ public class FluxAndMonoGeneratorService {
 
     public Mono<String> nameMono() {
         return Mono.just("Arka Bhuiyan").log();
+    }
+
+    public Mono<List<String>> listMono() {
+        return Mono.just(List.of("Arka","Mosfik","Zareen","Farhan")).log();
     }
 
     public Mono<String> nameMonoFilterMap(int stringLength) {
@@ -82,14 +82,14 @@ public class FluxAndMonoGeneratorService {
     public Flux<String> nameFluxFlatMap(int stringLength) {
         return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
                 .filter(string -> string.length() > stringLength)
-                .flatMap(s -> splitString(s))
+                .flatMap(this::splitString)
                 .log();
     }
 
     public Flux<String> nameFluxFlatMapAsync(int stringLength) {
         return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
                 .filter(string -> string.length() > stringLength)
-                .flatMap(s -> splitStringWithDelay(s))
+                .flatMap(this::splitStringWithDelay)
                 .log();
     }
 
@@ -145,7 +145,7 @@ public class FluxAndMonoGeneratorService {
     public Flux<String> nameFluxConcatMap(int stringLength) {
         return Flux.fromIterable(List.of("Arka", "Rabbi", "Mosfik", "Tahiyat", "Zareen"))
                 .filter(string -> string.length() > stringLength)
-                .concatMap(s -> splitStringWithDelay(s))
+                .concatMap(this::splitStringWithDelay)
                 .log();
     }
 }
