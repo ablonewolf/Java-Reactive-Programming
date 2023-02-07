@@ -162,4 +162,13 @@ class FluxAndMonoGeneratorServiceTest {
                 .expectNext("bhuiyan")
                 .verifyComplete();
     }
+
+    @Test
+    void exploreMergeSequential() {
+        var mergedValue = fluxAndMonoGeneratorService.exploreMergeSequential();
+
+        StepVerifier.create(mergedValue)
+                .expectNext("a","b","c","d","e","f")
+                .verifyComplete();
+    }
 }
