@@ -153,6 +153,13 @@ public class FluxAndMonoGeneratorService {
         return firstMono.mergeWith(secondMono).log();
     }
 
+    public Flux<String> exploreZip() {
+        var firstFlux = Flux.just("a","b","c");
+        var secondFlux = Flux.just("d","e","f");
+
+        return Flux.zip(firstFlux,secondFlux,(first,second)-> first+second).log(); // ad be cf
+    }
+
     public Flux<String> splitString(String name) {
         var charArray = name.split("");
         return Flux.fromArray(charArray);
