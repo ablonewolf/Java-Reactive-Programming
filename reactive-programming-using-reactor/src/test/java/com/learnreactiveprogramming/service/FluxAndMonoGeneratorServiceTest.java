@@ -23,7 +23,7 @@ class FluxAndMonoGeneratorServiceTest {
     void listMono() {
         var listMono = fluxAndMonoGeneratorService.listMono();
         StepVerifier.create(listMono)
-                .expectNext(List.of("Arka","Mosfik","Zareen","Farhan"))
+                .expectNext(List.of("Arka", "Mosfik", "Zareen", "Farhan"))
                 .verifyComplete();
     }
 
@@ -146,10 +146,20 @@ class FluxAndMonoGeneratorServiceTest {
 
 
     @Test
-    void splitString() {
+    void exploreMerge() {
+        var mergedValue = fluxAndMonoGeneratorService.exploreMerge();
+
+        StepVerifier.create(mergedValue)
+                .expectNext("a","d","b","e","c","f")
+                .verifyComplete();
     }
 
     @Test
-    void splitStringWithDelay() {
+    void exploreMergeWithMono() {
+        var mergedValue = fluxAndMonoGeneratorService.exploreMergeWithMono();
+        StepVerifier.create(mergedValue)
+                .expectNext("arka ")
+                .expectNext("bhuiyan")
+                .verifyComplete();
     }
 }

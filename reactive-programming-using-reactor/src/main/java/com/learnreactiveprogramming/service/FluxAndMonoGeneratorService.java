@@ -16,9 +16,10 @@ public class FluxAndMonoGeneratorService {
 
         fluxAndMonoGeneratorService.nameMono().subscribe(name -> System.out.println("Mono Name is : " + name + "."));
 
-        fluxAndMonoGeneratorService.listMono().subscribe(name -> System.out.println("Name in the list: " + name + "." ));
+        fluxAndMonoGeneratorService.listMono().subscribe(name -> System.out.println("Name in the list: " + name + "."));
 
         fluxAndMonoGeneratorService.nameFluxUpper().subscribe(name -> System.out.println("Name in Upper case is : " + name + "."));
+        fluxAndMonoGeneratorService.exploreMerge().subscribe(System.out::println);
     }
 
     public Flux<String> nameFlux() {
@@ -30,7 +31,7 @@ public class FluxAndMonoGeneratorService {
     }
 
     public Mono<List<String>> listMono() {
-        return Mono.just(List.of("Arka","Mosfik","Zareen","Farhan")).log();
+        return Mono.just(List.of("Arka", "Mosfik", "Zareen", "Farhan")).log();
     }
 
     public Mono<String> nameMonoFilterMap(int stringLength) {
@@ -121,13 +122,27 @@ public class FluxAndMonoGeneratorService {
     public Flux<String> exploreFluxConcat() {
         var firstName = Flux.just("Arka");
         var lastName = Flux.just("Bhuiyan");
-        return Flux.concat(firstName,lastName).log();
+        return Flux.concat(firstName, lastName).log();
     }
 
     public Flux<String> exploreConcatWithMono() {
         var firstName = Mono.just("Arka");
         var lastName = Mono.just("Bhuiyan");
         return firstName.concatWith(lastName).log();
+    }
+
+    public Flux<String> exploreMerge() {
+        var firstFlux = Flux.just("a","b","c").delayElements(Duration.ofMillis(200));
+        var secondFlux = Flux.just("d","e","f").delayElements(Duration.ofMillis(250));
+
+        return Flux.merge(firstFlux,secondFlux).log();
+    }
+
+    public Flux<String> exploreMergeWithMono() {
+        var firstMono = Mono.just("arka ").delayElement(Duration.ofMillis(150));
+        var secondMono = Mono.just("bhuiyan").delayElement(Duration.ofMillis(200));
+
+        return firstMono.mergeWith(secondMono).log();
     }
 
     public Flux<String> splitString(String name) {
@@ -148,4 +163,5 @@ public class FluxAndMonoGeneratorService {
                 .concatMap(this::splitStringWithDelay)
                 .log();
     }
+
 }
