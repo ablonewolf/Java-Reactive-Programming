@@ -20,6 +20,14 @@ class FluxAndMonoGeneratorServiceTest {
     }
 
     @Test
+    void listMono() {
+        var listMono = fluxAndMonoGeneratorService.listMono();
+        StepVerifier.create(listMono)
+                .expectNext(List.of("Arka","Mosfik","Zareen","Farhan"))
+                .verifyComplete();
+    }
+
+    @Test
     void nameFluxUpper() {
         var nameFluxUpper = fluxAndMonoGeneratorService.nameFluxUpper();
         StepVerifier.create(nameFluxUpper)
@@ -50,7 +58,7 @@ class FluxAndMonoGeneratorServiceTest {
     void nameFluxFlatMap() {
         var nameFluxFlatMap = fluxAndMonoGeneratorService.nameFluxFlatMap(4);
         StepVerifier.create(nameFluxFlatMap)
-                .expectNext("R","a","b")
+                .expectNext("R", "a", "b")
                 .expectNextCount(21)
                 .verifyComplete();
     }
@@ -67,7 +75,7 @@ class FluxAndMonoGeneratorServiceTest {
     void nameFluxConcatMap() {
         var nameFluxConcatMap = fluxAndMonoGeneratorService.nameFluxConcatMap(4);
         StepVerifier.create(nameFluxConcatMap)
-                .expectNext("R","a","b","b","i")
+                .expectNext("R", "a", "b", "b", "i")
                 .expectNextCount(19)
                 .verifyComplete();
     }
@@ -78,7 +86,7 @@ class FluxAndMonoGeneratorServiceTest {
         var monoValue = fluxAndMonoGeneratorService.nameMonoFlatMap(stringLength);
 
         StepVerifier.create(monoValue)
-                .expectNext(List.of("A","R","K","A","B","H","U","I","Y","A","N"))
+                .expectNext(List.of("A", "R", "K", "A", "B", "H", "U", "I", "Y", "A", "N"))
                 .verifyComplete();
     }
 
@@ -88,13 +96,13 @@ class FluxAndMonoGeneratorServiceTest {
         var monoValue = fluxAndMonoGeneratorService.nameMonoFlatMapMany(stringLength);
 
         StepVerifier.create(monoValue)
-                .expectNext("A","R","K","A")
+                .expectNext("A", "R", "K", "A")
                 .verifyComplete();
     }
 
     @Test
     void nameFluxTransform() {
-        int stringLength =4;
+        int stringLength = 4;
         var nameFluxTransform = fluxAndMonoGeneratorService.nameFluxTransform(stringLength);
         StepVerifier.create(nameFluxTransform)
                 .expectNextCount(4)
@@ -103,7 +111,7 @@ class FluxAndMonoGeneratorServiceTest {
 
     @Test
     void nameFluxTransformDefaultEmpty() {
-        int stringLength =8;
+        int stringLength = 8;
         var nameFluxTransform = fluxAndMonoGeneratorService.nameFluxTransformDefaultEmpty(stringLength);
         StepVerifier.create(nameFluxTransform)
                 .expectNext("default")
@@ -112,7 +120,7 @@ class FluxAndMonoGeneratorServiceTest {
 
     @Test
     void nameFluxTransformSwitchIfEmpty() {
-        int stringLength =8;
+        int stringLength = 8;
         var nameFluxTransform = fluxAndMonoGeneratorService.nameFluxTransformSwitchIfEmpty(stringLength);
         StepVerifier.create(nameFluxTransform)
                 .expectNext("default")
@@ -134,5 +142,14 @@ class FluxAndMonoGeneratorServiceTest {
         StepVerifier.create(concatWithFlux)
                 .expectNextCount(2)
                 .verifyComplete();
+    }
+
+
+    @Test
+    void splitString() {
+    }
+
+    @Test
+    void splitStringWithDelay() {
     }
 }
