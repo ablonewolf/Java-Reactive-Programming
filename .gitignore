@@ -20,6 +20,7 @@ bin/
 ### IntelliJ IDEA ###
 .idea
 .idea/**
+.idea/*.xml
 *.iws
 *.iml
 *.ipr
@@ -37,5 +38,9 @@ out/
 
 ### VS Code ###
 .vscode/
+<<<<<<< Updated upstream
 ### ignore the build directory.
+=======
+/reactive-programming-using-reactor/out/
+>>>>>>> Stashed changes
 /reactive-programming-using-reactor/build/
